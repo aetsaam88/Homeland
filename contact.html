@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Homeland</title>
+    <link rel="stylesheet" href="contact-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">Homeland<span>.</span></div>
+  <div class="menu-icon">
+  <i class="fa fa-bars"></i>
+</div>
+
+  <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="buy.html">Buy</a></li>
+  <li><a href="rent.html">Rent</a></li>
+  <li class="properties-list-item">
+    <a href="#">Properties <i class="fa-solid fa-angle-down"></i></a>
+    <ul class="dropdown">
+      <li><a href="#">Condo</a></li>
+      <li><a href="#">Property Land</a></li>
+      <li><a href="#">Commercial Building</a></li>
+      <li class="has-submenu">
+        <a href="#">Submanu <i class="fa-solid fa-angle-right"></i></a>
+        <ul class="sub-menu">
+          <li><a href="#">Office</a></li>
+          <li><a href="#">Retail</a></li>
+          <li><a href="#">Industrial</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="blog.html">Blog</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+
+<div class="slider">
+  <div class="slide active" style="background-image: url('hero_bg_2.jpg'); height: 60vh;" >
+    <div class="overlay"></div>
+    <div class="content">
+<h1> Contact Us</h1>      
+    </div>
+  </div>
+  
+</div>
+<script>
+const menuIcon = document.querySelector('.menu-icon');
+const navMenu = document.querySelector('.navbar ul');
+
+menuIcon.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+</script>
+
+
+<section class="contact-section">
+  <div class="contact-form">
+    <form>
+      <label>Full Name</label>
+      <input type="text" placeholder="Full Name">
+
+      <label>Email</label>
+      <input type="email" placeholder="Email Address">
+
+      <label>Subject</label>
+      <input type="text" placeholder="Enter Subject">
+
+      <label>Message</label>
+      <textarea placeholder="Say hello to us"></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <div class="contact-info">
+    <h3>Contact Info</h3>
+    <p><strong>Address</strong><br>
+      203 Fake St. Mountain View, San Francisco, California, USA</p>
+    <p><strong>Phone</strong><br>
+      +1 232 3235 324</p>
+    <p><strong>Email Address</strong><br>
+      youremail@domain.com</p>
+  </div>
+</section>
+
+
+
+
+
+<div class="team-section">
+     <div class="section-header">
+        <h2>OUR AGENTS</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero magnam officiis ipsa eum pariatur labore fugit amet eaque iure vitae, repellendus laborum in modi reiciendis quis! Optio minima quibusdam, laboriosam.</p>
+    </div>
+        <div class="container">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="person_1.jpg.webp" alt="Megan Smith">
+                </div>
+                <div class="member-info">
+                    <h3>Megan Smith</h3>
+                    <p class="role">Real Estate Agent</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. Totam atque corporis nisi, veniam non. Tempore cupiditate, vitae minus obcaecati provident beatae!</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="person_2.jpg.webp" alt="Brooke Cagle">
+                </div>
+                <div class="member-info">
+                    <h3>Brooke Cagle</h3>
+                    <p class="role">Real Estate Agent</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cumque vitae voluptates culpa earum similique corrupti itaque veniam doloribus amet perspiciatis recusandae sequi nihil tenetur ad, modi quos id magni!</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="person_3.jpg.webp" alt="Philip Martin">
+                </div>
+                <div class="member-info">
+                    <h3>Philip Martin</h3>
+                    <p class="role">Real Estate Agent</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores illo iusto, inventore, iure dolorum officiis modi repellat nobis, praesentium perspiciatis, explicabo. Atque cupiditate, voluptates pariatur odit officia libero veniam quo.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>ABOUT HOMELAND</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequuntur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
+            </div>
+            <div class="footer-section navigations">
+    <h2>NAVIGATIONS</h2>
+    <div class="navigation-columns">
+        <ul class="navigation-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="buy.html">Buy</a></li>
+            <li><a href="rent.html">Rent</a></li>
+            <li><a href="#">Properties</a></li>
+        </ul>
+        <ul class="navigation-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Terms</a></li>
+        </ul>
+    </div>
+</div>
+            <div class="footer-section follow-us">
+                <h2>FOLLOW US</h2>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2025 All rights reserved | This template is made with ❤️ by Colorlib</p>
+        </div>
+    </div>
+
+</body>
+</html>

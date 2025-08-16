@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeland</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">Homeland<span>.</span></div>
+  <div class="menu-icon">
+  <i class="fa fa-bars"></i>
+</div>
+
+  <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="buy.html">Buy</a></li>
+  <li><a href="rent.html">Rent</a></li>
+  <li class="properties-list-item">
+    <a href="#">Properties <i class="fa-solid fa-angle-down"></i></a>
+    <ul class="dropdown">
+      <li><a href="#">Condo</a></li>
+      <li><a href="#">Property Land</a></li>
+      <li><a href="#">Commercial Building</a></li>
+      <li class="has-submenu">
+        <a href="#">Submanu <i class="fa-solid fa-angle-right"></i></a>
+        <ul class="sub-menu">
+          <li><a href="#">Office</a></li>
+          <li><a href="#">Retail</a></li>
+          <li><a href="#">Industrial</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="blog.html">Blog</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slide active" style="background-image: url('hero_bg_1.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+      <p>FOR RENT</p>
+      <h2>871 CRENSHAW BLVD</h2>
+      <h3>$2,250,500</h3>
+      <button>SEE DETAILS</button>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('hero_bg_2.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+      <p>FOR SALE</p>
+      <h2>Modern Apartment</h2>
+      <h3>$1,800,000</h3>
+      <button>SEE DETAILS</button>
+    </div>
+  </div>
+  
+  <!-- Arrows -->
+  <div class="arrow left">&#10094;</div>
+  <div class="arrow right">&#10095;</div>
+
+  <!-- Dots -->
+  <div class="dots"></div>
+</div>
+<script>
+const menuIcon = document.querySelector('.menu-icon');
+const navMenu = document.querySelector('.navbar ul');
+
+menuIcon.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+</script>
+<script>
+let slides = document.querySelectorAll('.slide');
+let current = 0;
+let dotsContainer = document.querySelector('.dots');
+
+slides.forEach((_, i) => {
+  let dot = document.createElement('span');
+  if (i === 0) dot.classList.add('active');
+  dotsContainer.appendChild(dot);
+});
+
+let dots = document.querySelectorAll('.dots span');
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+
+  slides[index].classList.add('active');
+  dots[index].classList.add('active');
+}
+
+document.querySelector('.arrow.left').addEventListener('click', () => {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+});
+
+document.querySelector('.arrow.right').addEventListener('click', () => {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+});
+
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    current = i;
+    showSlide(current);
+  });
+});
+
+setInterval(() => {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}, 5000);
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="search-section">
+    <div class="search-bar-container">
+        <div class="filter-group">
+            <label for="listing-type">LISTING TYPES</label>
+            <select id="listing-type" name="listing-type">
+                <option value="condo">Condo</option>
+                <option value="house">House</option>
+                <option value="apartment">Apartment</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="offer-type">OFFER TYPE</label>
+            <select id="offer-type" name="offer-type">
+                <option value="for-sale">For Sale</option>
+                <option value="for-rent">For Rent</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="select-city">SELECT CITY</label>
+            <select id="select-city" name="select-city">
+                <option value="new-york">New York</option>
+                <option value="los-angeles">Los Angeles</option>
+                <option value="chicago">Chicago</option>
+            </select>
+        </div>
+        <button class="search-button">Search</button>
+    </div>
+
+    <div class="results-toolbar">
+        <div class="view-options">
+            <i class="fa-solid fa-grip-lines"></i>
+            <i class="fa-solid fa-table-cells"></i>
+        </div>
+        <div class="filter-links">
+            <a href="#" class="active">All</a>
+            <a href="#">Rent</a>
+            <a href="#">Sale</a>
+        </div>
+        <div class="sort-options">
+            <label for="sort-by">Sort by</label>
+            <select id="sort-by" name="sort-by">
+                <option value="default">Default Order</option>
+                <option value="price-low">Price Low to High</option>
+                <option value="price-high">Price High to Low</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+
+ <div class="property-listings">
+        <div class="contaner">
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_1.jpg (1).webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag sale">SALE</span>
+                        <span class="tag rent">RENT</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>625 S. Berendo St</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 625 S. Berendo St, Unit 607 Los Angeles, CA 90005</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>7,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_2.jpg.webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag sale">SALE</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>871 Crenshaw Blvd</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 1 New York Ave, Wamero Bay, NSW 2282</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>1,620</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_3.jpg.webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag lease">LEASE</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>853 S Lucerne Blvd</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 853 S Lucerne Blvd Unit 101 Los Angeles, CA 90005</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>5,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_4.jpg.webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag sale">SALE</span>
+                        <span class="tag rent">RENT</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>625 S. Berendo St</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 625 S. Berendo St, Unit 607 Los Angeles, CA 90005</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>7,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_5.jpg.webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag sale">SALE</span>
+                        <span class="tag rent">RENT</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>871 Crenshaw Blvd</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 1 New York Ave, Wamero Bay, NSW 2282</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>1,620</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_6.jpg.webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag lease">LEASE</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>853 S Lucerne Blvd</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 853 S Lucerne Blvd Unit 101 Los Angeles, CA 90005</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>5,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_7.jpg.webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag sale">SALE</span>
+                        <span class="tag rent">RENT</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>625 S. Berendo St</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 625 S. Berendo St, Unit 607 Los Angeles, CA 90005</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>7,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_8.jpg.webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag sale">SALE</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>871 Crenshaw Blvd</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 1 New York Ave, Wamero Bay, NSW 2282</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>1,620</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-image">
+                    <img src="img_1.jpg.webp" alt="Property Image">
+                    <div class="tags">
+                        <span class="tag lease">LEASE</span>
+                    </div>
+                    <div class="favorite"><i class="far fa-heart"></i></div>
+                </div>
+                <div class="card-content">
+                    <h3>853 S Lucerne Blvd</h3>
+                    <p class="address"><i class="fas fa-map-marker-alt"></i> 853 S Lucerne Blvd Unit 101 Los Angeles, CA 90005</p>
+                    <p class="price">$2,265,500</p>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>BEDS</span>
+                            <span>2+</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>BATHS</span>
+                            <span>2</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>SQ FT</span>
+                            <span>5,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+        </div>
+        <div class="pagination">
+        <a href="#" class="page-link active">1</a>
+        <a href="#" class="page-link">2</a>
+        <a href="#" class="page-link">3</a>
+        <a href="#" class="page-link">4</a>
+        <a href="#" class="page-link">5</a>
+        <span class="ellipsis">...</span>
+        <a href="#" class="page-link">10</a>
+    </div>
+
+    </div>
+
+
+ <div class="why-choose-us-section">
+        <div class="containe">
+            <div class="section-header">
+                <h2>WHY CHOOSE US?</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis maiores quisquam saepe architecto error corporis aliquam. Cum ipsam a consectetur aut sunt sint animi, pariatur corporis, neque, deleniti cupiditate officia.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Research Suburbs</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt iure qui natus perspiciatis ex odio molestia.</p>
+                    <a href="#" class="read-more">READ MORE</a>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-sign"></i>
+                    </div>
+                    <h3>Sold Houses</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt iure qui natus perspiciatis ex odio molestia.</p>
+                    <a href="#" class="read-more">READ MORE</a>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Security Priority</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt iure qui natus perspiciatis ex odio molestia.</p>
+                    <a href="#" class="read-more">READ MORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const container = document.querySelector('.contaner');
+  const gridBtn = document.querySelector('.view-options .fa-table-cells');
+  const listBtn = document.querySelector('.view-options .fa-grip-lines');
+
+  function setActive(button) {
+    [gridBtn, listBtn].forEach(b => b.classList.remove('active-view'));
+    button.classList.add('active-view');
+  }
+
+  container.classList.remove('list-view');
+  setActive(gridBtn);
+
+  listBtn.addEventListener('click', function(e) {
+    container.classList.add('list-view');
+    setActive(listBtn);
+  });
+
+  gridBtn.addEventListener('click', function(e) {
+    container.classList.remove('list-view');
+    setActive(gridBtn);
+  });
+});
+</script>
+
+<div class="blog-section">
+        <div class="contain">
+            <div class="section-header">
+                <h2>RECENT BLOG</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis maiores quisquam saepe architecto error corporis aliquam. Cum ipsam a consectetur aut sunt sint animi, pariatur corporis, neque, deleniti cupiditate officia.</p>
+            </div>
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <img src="img_2.jpg.webp" alt="Blog Post Image 1">
+                    <div class="post-content">
+                        <span class="post-date">JAN 20TH, 2019</span>
+                        <h3><a href="#">Art Gossip by Mike Charles</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
+                    </div>
+                </div>
+                <div class="blog-post">
+                    <img src="img_3.jpg.webp" alt="Blog Post Image 2">
+                    <div class="post-content">
+                        <span class="post-date">JAN 20TH, 2019</span>
+                        <h3><a href="#">Art Gossip by Mike Charles</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
+                    </div>
+                </div>
+                <div class="blog-post">
+                    <img src="img_4.jpg.webp" alt="Blog Post Image 3">
+                    <div class="post-content">
+                        <span class="post-date">JAN 20TH, 2019</span>
+                        <h3><a href="#">Art Gossip by Mike Charles</a></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="team-section">
+     <div class="section-header">
+        <h2>OUR AGENTS</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero magnam officiis ipsa eum pariatur labore fugit amet eaque iure vitae, repellendus laborum in modi reiciendis quis! Optio minima quibusdam, laboriosam.</p>
+    </div>
+        <div class="container">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="person_1.jpg.webp" alt="Megan Smith">
+                </div>
+                <div class="member-info">
+                    <h3>Megan Smith</h3>
+                    <p class="role">Real Estate Agent</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. Totam atque corporis nisi, veniam non. Tempore cupiditate, vitae minus obcaecati provident beatae!</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="person_2.jpg.webp" alt="Brooke Cagle">
+                </div>
+                <div class="member-info">
+                    <h3>Brooke Cagle</h3>
+                    <p class="role">Real Estate Agent</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cumque vitae voluptates culpa earum similique corrupti itaque veniam doloribus amet perspiciatis recusandae sequi nihil tenetur ad, modi quos id magni!</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="person_3.jpg.webp" alt="Philip Martin">
+                </div>
+                <div class="member-info">
+                    <h3>Philip Martin</h3>
+                    <p class="role">Real Estate Agent</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores illo iusto, inventore, iure dolorum officiis modi repellat nobis, praesentium perspiciatis, explicabo. Atque cupiditate, voluptates pariatur odit officia libero veniam quo.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>ABOUT HOMELAND</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequuntur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
+            </div>
+            <div class="footer-section navigations">
+    <h2>NAVIGATIONS</h2>
+    <div class="navigation-columns">
+        <ul class="navigation-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Buy</a></li>
+            <li><a href="#">Rent</a></li>
+            <li><a href="#">Properties</a></li>
+        </ul>
+        <ul class="navigation-list">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms</a></li>
+        </ul>
+    </div>
+</div>
+            <div class="footer-section follow-us">
+                <h2>FOLLOW US</h2>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2025 All rights reserved | This template is made with ❤️ by Colorlib</p>
+        </div>
+    </div>
+
+</body>
+</html>
